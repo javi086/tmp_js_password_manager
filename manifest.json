@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "EasyPass",
+  "version": "1.0",
+  "description": "Mini LastPass-like extension",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://your-render-app-name.onrender.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/crypto-js.min.js",
+        "js/crypto-utils.js",
+        "js/crypto.js",
+        "js/content.js"
+      ]
+    }
+  ]
+}

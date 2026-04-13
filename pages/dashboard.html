@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white flex">
+
+<!-- SIDEBAR -->
+<div class="w-64 bg-[#0f172a] h-screen p-5">
+  <h1 class="text-xl font-bold mb-8">SecureVault</h1>
+
+  <p class="text-sm text-gray-400 mb-2">Navigation</p>
+
+  <button class="block w-full text-left p-2 rounded bg-white text-black mb-2">
+    Vault
+  </button>
+
+  <button class="block w-full text-left p-2 rounded hover:bg-gray-800">
+    Trash
+  </button>
+  <button id="backupBtn" class="block w-full text-left p-2 rounded bg-blue-600 hover:bg-blue-500 mt-4 text-white">
+  Backup to DB
+</button>
+
+  <button onclick="logout()" class="mt-10 text-red-400">
+    Logout
+  </button>
+</div>
+
+<!-- MAIN -->
+<div class="flex-1 p-6">
+
+  <!-- USER BAR -->
+  <div class="flex justify-between items-center mb-6">
+    <div>
+      <h2 class="text-xl font-bold">Dashboard</h2>
+      <p class="text-gray-400 text-sm">Manage your credentials</p>
+    </div>
+
+    <div class="text-right text-sm">
+      <p id="userEmail"></p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="grid grid-cols-3 gap-4 mb-6">
+
+    <div class="bg-[#111827] p-4 rounded-xl">
+      <p>Total Vault Items</p>
+      <h2 id="total" class="text-2xl font-bold">0</h2>
+    </div>
+
+    <div class="bg-[#111827] p-4 rounded-xl">
+      <p>Trash Items</p>
+      <h2 id="trashCount" class="text-2xl font-bold">0</h2>
+    </div>
+
+    <div class="bg-[#111827] p-4 rounded-xl">
+      <p>Status</p>
+      <h2 class="text-green-400 font-bold">Active</h2>
+    </div>
+
+  </div>
+
+  <!-- SEARCH -->
+  <input id="search" placeholder="Search vault..."
+    class="w-full p-3 rounded bg-[#111827] mb-4 outline-none">
+
+  <!-- ADD -->
+  <div class="grid grid-cols-4 gap-2 mb-6">
+
+    <input id="site" placeholder="Site"
+      class="p-2 rounded bg-[#111827]">
+
+    <input id="username" placeholder="Username"
+      class="p-2 rounded bg-[#111827]">
+
+    <input id="password" placeholder="Password"
+      class="p-2 rounded bg-[#111827]">
+
+    <button id="addBtn"
+      class="bg-blue-600 rounded p-2 hover:bg-blue-500">
+      Add
+    </button>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="bg-[#111827] rounded-xl overflow-hidden">
+
+    <table class="w-full text-sm">
+      <thead class="bg-[#1f2937]">
+        <tr>
+          <th class="p-3 text-left">Site</th>
+          <th class="p-3 text-left">Username</th>
+          <th class="p-3 text-left">Password</th>
+          <th class="p-3 text-left">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody id="table"></tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
+
+  <div class="bg-[#111827] p-6 rounded-xl w-96">
+
+    <h2 class="text-lg font-bold mb-3">Edit Vault Item</h2>
+
+    <input id="editUser" class="w-full p-2 mb-2 bg-[#0b1220] rounded">
+    <input id="editPass" class="w-full p-2 mb-3 bg-[#0b1220] rounded">
+
+    <button id="saveEdit" class="bg-green-600 w-full p-2 rounded">
+      Save
+    </button>
+
+  </div>
+
+</div>
+<script type="module" src="../js/api.js"></script>
+<script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>

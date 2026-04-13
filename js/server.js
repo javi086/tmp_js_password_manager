@@ -18,8 +18,7 @@ const parser = new Parser({
 
 
 // Initialize Stripe
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
+const stripe = require('stripe')('STRIPE_SECRET_KEY');
 // Use environment variable for the secret
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
